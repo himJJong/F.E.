@@ -1,0 +1,28 @@
+let. var
+
+null - 값이 없음, undefined - 값이 설정 되지 않음
+
+=== 두 값이 일치하는지 확인
+!== 두 값이 일치하지 않는지 확인
+
+// 한줄 주석, /* */ 여러줄 주석
+
+let 과 const 를 배울 때, 다른 블록 범위에서는 똑같은 이름으로 선언 할 수도 있다
+
+객체 안에 함수를 넣을 때, 화살표 함수로 선언한다면 제대로 작동하지 않습니다.
+이유는, function 으로 선언한 함수는 this 가 제대로 자신이 속한 객체를 가르키게 되는데, 화살표 함수는 그렇지 않기 때문입니다.
+
+Getter 함수는 특정 값을 조회 할 때 우리가 설정한 함수로 연산된 값을 반환합니다
+
+
+const doggy = {
+  name: '멍멍이',
+  sound: '멍멍',
+  age: 2
+};
+
+console.log(Object.entries(doggy));
+console.log(Object.keys(doggy));
+console.log(Object.values(doggy));
+
+콜백 함수란, 함수 타입의 값을 파라미터로 넘겨줘서, 파라미터로 받은 함수를 특정 작업이 끝나고 호출을 해주는 것을 의미
