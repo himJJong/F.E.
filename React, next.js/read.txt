@@ -1,0 +1,77 @@
+View 레이어 초점을 맞춰 개발된다는 점이 리액트의 장점이자 단점이다.
+
+리액트는 UI라는 작은 영역만 담당하여 빠른 릴리즈가 가능하지만, Angular나 Vue 같은 Framework과 달리 전역에서의 상태관리나 클라이어트 사이드 라우팅(CSR, Client Side Routing)을 하려면 redux나 react-router-dom같은 추가 라이브러리 설치가 필수적이다.
+리액트는 UI라는 작은 영역만 담당하기 때문에 프로젝트에 필요한 다양한 기능들을 사용하기에는 리액트가 가진 한계
+
+==================================================================
+
+현재 가장 대표적으로 사용되는 3가지 리액트 프레임워크
+
+<Next.js>
+
+장점
+- 페이지마다 data-fetch, pre-rendering 전략을 다르게 가능
+- 증분 정적 페이지 생성
+- 다양한 상태관리, 스타일링 라이브러리 지원
+- 파일 시스템 라우팅
+- API route
+- Webpack 5 지원
+
+단점
+- 프레임워크 지식 필요(_app.js, _document.js, getServerSideProps)
+- 플러그인 시스템이 없음
+- 이미지 최적화
+
+
+<Gatsby>
+
+장점
+- GraphQL이 기본
+- 플러그인 생태계
+- 이미지 최적화
+- 정적 페이지 성능이 next.js 보다 약간 좋음
+
+단점
+- GraphQL이 기본
+- 이미지 최적화와 정적 페이지 생성으로 빌드시간이 오래걸림(3000페이지 기준 30분)
+
+
+<Create React App>
+
+장점
+-  가장 배우기 쉬움(추가 프레임 워크 없음)
+- React 팀에서 생성 및 유지 관리
+
+단점
+
+- 서버 측 렌더링 없음(react-router 같은 서드파티 라우팅 라이브러리 필요)
+- Code Splitting과 같은 기능을 직접 구현해야함
+- eject시 모든 종속성을 관리해야해서 복잡성이 매우 증가함
+
+==================================================================
+가장 큰 차이점은 렌더링 방식에 있다.
+
+Create React App - CRA는 기본적으로 싱글 페이지 어플리케이션으로 CSR 방식으로 렌더링을 제공한다.
+Gatsby - Gatsby는 Site Generator (정적 페이지)를 생성하여 SSG 방식으로 렌더링을 제공한다.
+Next.js - Next.js는 SSG와 SSR 둘 다 사용 가능한 하이브리드 형태로 렌더링을 제공한다.
+
+
+<Next.js를 통해 구현할 수 있는 사전 렌더링의 두가지 형태인 SSR과 SSG>
+
+SSR(Server Side Rendering)
+
+- 페이지가 요청되었을 때 렌더링된다.
+- 런타임 실행이 필요하다.
+- 자바스크립트와 CSS 파일를 미리 가져오는 형태(Prefetch)
+
+getServerSideProps => for SSR
+
+SSG(Static Site Generation)
+
+- 빌드타임에 렌더링된다.
+- HTML이 CDN을 통해 제공된다.
+- 자바스크립트와 CSS 파일 뿐만 아니라 데이터까지 미리 가져오는 형태(Prefetch)
+
+getStaticProps, getStaticPaths => for SSG
+
+출처: https://geonlee.tistory.com/229 [빠리의 택시 운전사:티스토리]
